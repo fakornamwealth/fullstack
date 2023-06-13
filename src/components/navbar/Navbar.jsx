@@ -13,7 +13,9 @@ const Navbar = () => {
   // clear the user data and reload the page
   const logout = () => {
     localStorage.removeItem("user");
-    window.location.reload();
+    setTimeout(() => {
+      window.location.pathname = "/login";
+    }, 300);
   };
 
   return (
