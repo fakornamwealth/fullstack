@@ -21,6 +21,9 @@ const Register = () => {
       });
       if (res.data) {
         localStorage.setItem("user", JSON.stringify(res.data));
+        setTimeout(() => {
+          window.location.pathname = "/";
+        }, 300);
       } else {
         setError(true);
       }

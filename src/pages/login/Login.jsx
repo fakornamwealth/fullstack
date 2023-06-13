@@ -21,7 +21,7 @@ const Login = () => {
         // store data in localstorage
         localStorage.setItem("user", JSON.stringify(res.data));
         setTimeout(() => {
-          window.location.reload();
+          window.location.pathname = "/";
         }, 300);
       } else {
         setError(true);

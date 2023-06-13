@@ -8,7 +8,7 @@ import Admin from "./pages/admin/Admin";
 
 const App = () => {
   // check for user and admin
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("user")).accessToken;
 
   const admin = user?.isAdmin;
   return (
