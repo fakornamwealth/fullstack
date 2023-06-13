@@ -37,9 +37,8 @@ const Admin = () => {
         console.log(error);
       }
     };
-    return () => {
-      getProducts();
-    };
+
+    getProducts();
   }, []);
 
   //   add any project

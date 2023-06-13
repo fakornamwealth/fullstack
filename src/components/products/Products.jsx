@@ -18,9 +18,8 @@ const Products = () => {
         console.log(error);
       }
     };
-    return () => {
-      getProducts();
-    };
+
+    getProducts();
   }, []);
 
   return (

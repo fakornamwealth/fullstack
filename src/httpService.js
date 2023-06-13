@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://react-node-u6i6.onrender.com/api";
+axios.defaults.baseURL = "https://react-node-u6i6.onrender.com/api/";
 
 const user = JSON.parse(localStorage.getItem("user"));
 
