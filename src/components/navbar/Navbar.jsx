@@ -14,7 +14,7 @@ const Navbar = () => {
   const logout = () => {
     localStorage.removeItem("user");
     setTimeout(() => {
-      window.location.pathname = "/login";
+      window.location.pathname = "/";
     }, 300);
   };
 
