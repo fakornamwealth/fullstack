@@ -1,0 +1,55 @@
+.registerContainer {
+  padding: 20px;
+  width: 100%;
+}
+
+.regTitle {
+  text-align: center;
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.registerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.registerWrapper > form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  flex-direction: column;
+  border-radius: 5px;
+  background: #eee;
+  width: 400px;
+}
+.registerWrapper > form > label {
+  margin: 10px;
+  font-size: 20px;
+}
+.registerWrapper > form > input {
+  font-size: 18px;
+  width: 300px;
+  height: 40px;
+  border-radius: 5px;
+  outline: 0;
+  border: 1px solid #000;
+}
+.registerWrapper > form > button {
+  font-size: 18px;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  background: #000;
+  color: #fff;
+  margin: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: 500;
+}
+.registerWrapper > form > button:hover {
+  background: #eee;
+  color: #000;
+  transition: 0.3s ease;
+}

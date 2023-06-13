@@ -1,0 +1,109 @@
+.container {
+  height: 70px;
+  background: #3f2929;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  color: #eee;
+}
+
+.left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: #eee;
+
+  border: 0.5px solid gray;
+  height: 50px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnGet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  height: 40px;
+  width: 100px;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  background: green;
+  color: #eee;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btnGet:hover {
+  background: #eee;
+  color: green;
+}
+.btnOut {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  height: 40px;
+  width: 100px;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  background: red;
+  color: #eee;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btnOut:hover {
+  background: #eee;
+  color: red;
+}
+.btnHome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  height: 40px;
+  width: 100px;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  background: purple;
+  color: #eee;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btnHome:hover {
+  background: #eee;
+  color: purple;
+}
