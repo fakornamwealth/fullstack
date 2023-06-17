@@ -34,7 +34,7 @@ router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
   }
 });
 
-// DELETE A USER
+// DELETE A PRODUCT
 
 router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
   try {

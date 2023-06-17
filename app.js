@@ -42,3 +42,5 @@ app.use("/api/product", productRoute);
 
 // api homepage
 app.get("/api", (req, res) => res.send("Homepage"));
+
+export default app;
