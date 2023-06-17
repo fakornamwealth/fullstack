@@ -107,14 +107,15 @@ const Admin = () => {
   return (
     <div>
       <Navbar />
-      <div className="home">
+      <div className="hhome">
         <div className="homeContainer">
           <div className="homeTitle">
-            ADMIN PANEL : Welcome, {user?.username}
+            ADMIN PANEL : Alberta Welcomes You, {user?.username}!
           </div>
+          <span>Edit one Product at a time </span>
 
-          <div className="headers">
-            <div className="title">TITLE</div>
+          <div className="theHeaders">
+            <div className="homeTitle">TITLE</div>
             <div className="desc">DESCRIPTION</div>
             <div className="url">PRICE</div>
           </div>
@@ -127,7 +128,7 @@ const Admin = () => {
 
               <div className="pUrl">{product.price}</div>
 
-              <div className="buttons">
+              <div className="buttonss">
                 {!save ? (
                   <button className="editBtn" onClick={handleSave}>
                     Edit
@@ -206,8 +207,6 @@ const Admin = () => {
                 Add
               </button>
             </form>
-
-            <span>Edit a Product</span>
           </div>
         </div>
       </div>

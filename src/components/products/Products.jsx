@@ -7,12 +7,20 @@ const Products = () => {
   // products state
   const [products, setProducts] = useState([]);
 
+  let cart = [];
+  const addToCart = (product) => {
+    cart.push(product);
+    console.log(cart);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+  };
+
   // fetch products when page renders
   useEffect(() => {
     const getProducts = async () => {
       try {
         const { data } = await generalRequest.get("/product");
-        console.log(data);
+
         setProducts(data);
       } catch (error) {
         console.log(error);
@@ -21,6 +29,8 @@ const Products = () => {
 
     getProducts();
   }, []);
+
+  // add product to cart
 
   return (
     <div>
@@ -40,7 +50,9 @@ const Products = () => {
               <div className="prodDesc">{product.desc}</div>
               <div className="prodColor">{product.color}</div>
               <div className="prodPrice">£{product.price}</div>
-              <button className="cartBtn">Add To Cart</button>
+              <button onClick={() => addToCart(product)} className="cartBtn">
+                Add To Cart
+              </button>
             </div>
           ))}
         </div>

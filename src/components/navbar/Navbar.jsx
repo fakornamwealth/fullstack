@@ -2,6 +2,9 @@ import React from "react";
 import "./navbar.css";
 import Logo from "../../images/logo.jpg";
 import { useNavigate } from "react-router-dom";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { generalRequest, userRequest } from "../../httpService";
+
 const Navbar = () => {
   const navigate = useNavigate();
 
@@ -12,10 +15,15 @@ const Navbar = () => {
 
   // clear the user data and reload the page
   const logout = () => {
-    localStorage.removeItem("user");
-    setTimeout(() => {
+    try {
+      const res = userRequest.put("/auth/logout");
+      localStorage.removeItem("user");
       window.location.pathname = "/";
-    }, 300);
+    } catch (error) {
+      console.log(error);
+    }
+
+    // res.status(204)
   };
 
   return (
@@ -26,6 +34,11 @@ const Navbar = () => {
             <img className="img" src={Logo} alt="Logo" />
           </div>
           <div className="middle">Alberta's Online Shop</div>
+
+          <div className="btnCart" onClick={() => navigate("/cart")}>
+            <AiOutlineShoppingCart style={{ fontSize: "30px" }} />{" "}
+            <span style={{ fontSize: "20px" }}></span>
+          </div>
           <div className="right">
             {!user ? (
               <>

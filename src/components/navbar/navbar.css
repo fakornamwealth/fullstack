@@ -2,6 +2,9 @@
   height: 70px;
   background: #3f2929;
   width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 .wrapper {
@@ -106,4 +109,24 @@
 .btnHome:hover {
   background: #eee;
   color: purple;
+}
+.btnCart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  height: 50px;
+  width: 50px;
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #eee;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btnCart:hover {
 }

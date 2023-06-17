@@ -1,4 +1,4 @@
-.home {
+.hhome {
   height: 100vh;
   background: #fff;
 }
@@ -9,7 +9,7 @@
   font-weight: 500;
 }
 
-.headers {
+.theHeaders {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin: 50px 20px 0px 30px;
@@ -25,7 +25,7 @@
   font-weight: 300;
 }
 
-.buttons {
+.buttonss {
   display: flex;
   justify-content: center;
   align-items: center;
