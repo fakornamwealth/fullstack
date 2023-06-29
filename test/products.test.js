@@ -13,12 +13,12 @@ chai.use(chaiHttp);
 // clean up database  before and after each test
 
 beforeEach((done) => {
-  // Products.deleteMany({}, function (err) {});
+  Products.deleteMany({}, function (err) {});
   // Users.deleteMany({}, function (err) {});
   done();
 });
 afterEach((done) => {
-  //   Products.deleteMany({}, function (err) {});
+  Products.deleteMany({}, function (err) {});
   //   Users.deleteMany({}, function (err) {});
   done();
 });

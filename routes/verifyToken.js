@@ -1,9 +1,10 @@
-import jwt from "jsonwebtoken";
+import jwt from 'jsonwebtoken';
 
+// middleware funtion to verify and validate token
 const verifyToken = (req, res, next) => {
   const authHeader = req.headers.token;
   if (authHeader) {
-    const token = authHeader.split(" ")[1];
+    const token = authHeader.split(' ')[1];
     jwt.verify(token, process.env.JWT_SECRET, (error, user) => {
       if (error) res.status(403).send(`Token not Valid!`);
       req.user = user;
@@ -14,6 +15,7 @@ const verifyToken = (req, res, next) => {
   }
 };
 
+// middleware funtion to verify, validate token, and authorize user/admin requests
 const verifyTokenAndAuthorization = (req, res, next) => {
   verifyToken(req, res, () => {
     if ((req.user.id = req.param.id || req.user.isAdmin)) {
@@ -23,6 +25,7 @@ const verifyTokenAndAuthorization = (req, res, next) => {
     }
   });
 };
+// middleware funtion to verify, validate token, and authorize  only admin requests
 const verifyTokenAndAdmin = (req, res, next) => {
   verifyToken(req, res, () => {
     if (req.user.isAdmin) {
