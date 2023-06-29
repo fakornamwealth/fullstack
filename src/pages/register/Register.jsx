@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./register.css";
 import Navbar from "../../components/navbar/Navbar";
 import { generalRequest } from "../../httpService";
+import "./register.css";
 
 const Register = () => {
   const [username, setUsername] = useState("");

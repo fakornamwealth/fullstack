@@ -1,24 +1,24 @@
-import { useEffect, useState } from "react";
-import "./admin.css";
-import { generalRequest, userRequest } from "../../httpService";
-import Navbar from "../../components/navbar/Navbar";
+import { useEffect, useState } from 'react';
+import './admin.css';
+import { generalRequest, userRequest } from '../../httpService';
+import Navbar from '../../components/navbar/Navbar';
 
 const Admin = () => {
   // states for projects and values for manipulation
   const [products, setProducts] = useState([]);
 
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
-  const [price, setPrice] = useState("");
+  const [title, setTitle] = useState('');
+  const [desc, setDesc] = useState('');
+  const [price, setPrice] = useState('');
   const [clicked, setIsClicked] = useState(false);
   const [save, setSave] = useState(false);
   // get user from Local storage
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem('user'));
 
   //   get all projects
   const getProducts = async () => {
     try {
-      const { data } = await generalRequest.get("/product");
+      const { data } = await generalRequest.get('/product');
       console.log(data);
       setProducts(data);
     } catch (error) {
@@ -30,7 +30,7 @@ const Admin = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const { data } = await generalRequest.get("/product");
+        const { data } = await generalRequest.get('/product');
         console.log(data);
         setProducts(data);
       } catch (error) {
@@ -48,14 +48,14 @@ const Admin = () => {
     setIsClicked(false);
 
     try {
-      const res = await userRequest.post("/product", {
+      const res = await userRequest.post('/product', {
         title,
         desc,
-        img: "",
-        color: "grey",
+        img: '',
+        color: 'grey',
         price,
       });
-
+      // if succusfull get the Products
       if (res.data) {
         getProducts();
       }
@@ -73,7 +73,7 @@ const Admin = () => {
 
   //   function to edit data
   const handleEdit = async (id) => {
-    if (title === "" || desc === "" || price === "") {
+    if (title === '' || desc === '' || price === '') {
       alert(`Please fill all fields or rewrite existing values!`);
       return;
     }
@@ -107,42 +107,42 @@ const Admin = () => {
   return (
     <div>
       <Navbar />
-      <div className="hhome">
-        <div className="homeContainer">
-          <div className="homeTitle">
+      <div className='hhome'>
+        <div className='homeContainer'>
+          <div className='homeTitle'>
             ADMIN PANEL : Alberta Welcomes You, {user?.username}!
           </div>
           <span>Edit one Product at a time </span>
 
-          <div className="theHeaders">
-            <div className="homeTitle">TITLE</div>
-            <div className="desc">DESCRIPTION</div>
-            <div className="url">PRICE</div>
+          <div className='theHeaders'>
+            <div className='homeTitle'>TITLE</div>
+            <div className='desc'>DESCRIPTION</div>
+            <div className='url'>PRICE</div>
           </div>
 
           {products?.map((product) => (
-            <div className="projects" key={product._id}>
-              <div className="pTitle">{product.title}</div>
+            <div className='projects' key={product._id}>
+              <div className='pTitle'>{product.title}</div>
 
-              <div className="description">{product.desc}</div>
+              <div className='description'>{product.desc}</div>
 
-              <div className="pUrl">{product.price}</div>
+              <div className='pUrl'>{product.price}</div>
 
-              <div className="buttonss">
+              <div className='buttonss'>
                 {!save ? (
-                  <button className="editBtn" onClick={handleSave}>
+                  <button className='editBtn' onClick={handleSave}>
                     Edit
                   </button>
                 ) : (
                   <button
-                    className="saveBtn"
+                    className='saveBtn'
                     onClick={() => handleEdit(product._id)}
                   >
                     Save
                   </button>
                 )}
                 <button
-                  className="deleteBtn"
+                  className='deleteBtn'
                   onClick={() => handleDelete(product._id)}
                 >
                   Delete
@@ -150,60 +150,60 @@ const Admin = () => {
               </div>
               {clicked ? (
                 <input
-                  type="text"
-                  className="editInput"
+                  type='text'
+                  className='editInput'
                   placeholder={product.title}
                   onChange={(e) => setTitle(e.target.value)}
                 />
               ) : (
-                ""
+                ''
               )}
               {clicked ? (
                 <input
-                  type="text"
-                  className="editInput"
+                  type='text'
+                  className='editInput'
                   placeholder={product.desc}
                   onChange={(e) => setDesc(e.target.value)}
                 />
               ) : (
-                ""
+                ''
               )}
 
               {clicked ? (
                 <input
-                  type="text"
-                  className="editInput"
+                  type='text'
+                  className='editInput'
                   placeholder={product.price}
                   onChange={(e) => setPrice(e.target.value)}
                 />
               ) : (
-                ""
+                ''
               )}
             </div>
           ))}
 
-          <div className="addProject">
+          <div className='addProject'>
             <span>Add a Product</span>
             <form onSubmit={handleAddProduct}>
               <input
-                type="text"
-                placeholder="title"
-                className="inputs"
+                type='text'
+                placeholder='title'
+                className='inputs'
                 onChange={(e) => setTitle(e.target.value)}
               />
               <input
-                type="text"
-                className="inputs"
-                placeholder="description"
+                type='text'
+                className='inputs'
+                placeholder='description'
                 onChange={(e) => setDesc(e.target.value)}
               />
               <input
-                type="text"
-                className="inputs"
-                placeholder="price"
+                type='text'
+                className='inputs'
+                placeholder='price'
                 onChange={(e) => setPrice(e.target.value)}
               />
-              <button className="btnAdd" type="submit">
+              <button className='btnAdd' type='submit'>
                 Add
               </button>
             </form>

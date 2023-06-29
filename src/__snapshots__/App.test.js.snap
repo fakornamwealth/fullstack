@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product component snapshot test 1`] = `
+<div>
+  <div
+    className="productContainer"
+  >
+    <div
+      className="productTitle"
+    >
+      Our Products
+    </div>
+    <div
+      className="productWrapper"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders correctly 1`] = `
+<div>
+  <div
+    className="productContainer"
+  >
+    <div
+      className="productTitle"
+    >
+      Our Products
+    </div>
+    <div
+      className="productWrapper"
+    />
+  </div>
+</div>
+`;

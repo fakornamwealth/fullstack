@@ -1,18 +1,35 @@
 import React, { useEffect, useState } from "react";
 import Image from "../../images/product.jpg";
 import "./products.css";
-import { generalRequest } from "../../httpService";
+import { generalRequest, userRequest } from "../../httpService";
 
 const Products = () => {
   // products state
   const [products, setProducts] = useState([]);
 
-  let cart = [];
-  const addToCart = (product) => {
-    cart.push(product);
-    console.log(cart);
+  // get user from Local storage
+  const user = JSON.parse(localStorage.getItem("user"));
 
-    localStorage.setItem("cart", JSON.stringify(cart));
+  let cart = [];
+  // add product to cart
+  const addToCart = async (product) => {
+    cart.push(product);
+    try {
+      const { data } = await userRequest.post("/cart", {
+        id: user._id, // userId
+        product: [
+          {
+            productId: product._id, //product Id
+          },
+        ],
+        amount: product.price, //price
+      });
+      console.log(data, "added to cart ");
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // fetch products when page renders
@@ -27,7 +44,7 @@ const Products = () => {
       }
     };
 
-    getProducts();
+    getProducts(); // return the get products function
   }, []);
 
   // add product to cart

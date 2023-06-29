@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import "./login.css";
-import { generalRequest } from "../../httpService";
-import Navbar from "../../components/navbar/Navbar";
+import React, { useState } from 'react';
+import './login.css';
+import { generalRequest } from '../../httpService';
+import Navbar from '../../components/navbar/Navbar';
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
 
   // submit login function
@@ -13,15 +13,16 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await generalRequest.post("/auth/login", {
+      const res = await generalRequest.post('/auth/login', {
         username,
         password,
       });
       if (res.data) {
         // store data in localstorage
-        localStorage.setItem("user", JSON.stringify(res.data));
+        localStorage.setItem('user', JSON.stringify(res.data));
         setTimeout(() => {
-          window.location.pathname = "/";
+          // navigate to home page
+          window.location.pathname = '/';
         }, 300);
       } else {
         setError(true);
@@ -34,13 +35,13 @@ const Login = () => {
   return (
     <div>
       <Navbar />
-      <div className="registerContainer">
-        <div className="regTitle">Login</div>
-        <div className="registerWrapper">
+      <div className='registerContainer'>
+        <div className='regTitle'>Login</div>
+        <div className='registerWrapper'>
           <form onSubmit={handleSubmit}>
             <label>Username</label>
             <input
-              type="text"
+              type='text'
               onChange={(e) => {
                 setUsername(e.target.value);
               }}
@@ -48,13 +49,13 @@ const Login = () => {
             />
             <label>Password</label>
             <input
-              type="text"
+              type='text'
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
               required
             />
-            <button type="submit">Login</button>
+            <button type='submit'>Login</button>
           </form>
           {error && <div>Invalid Parameters!</div>}
         </div>
