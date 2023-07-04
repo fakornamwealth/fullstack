@@ -2,6 +2,7 @@ import express from "express";
 import User from "../models/Users.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { verifyToken } from "./verifyToken.js";
 
 const router = express.Router();
 
@@ -17,11 +18,7 @@ router.post("/register", async (req, res) => {
     res.status(400).send(`Please fill all fields!`);
   }
 
-  const newUser = new User({
-    username: req.body.username,
-    email: req.body.email,
-    password: req.body.password,
-  });
+  const newUser = new User(req.body);
   try {
     const saveUser = await newUser.save();
     res.status(201).send(saveUser);
@@ -81,6 +78,18 @@ router.post("/login", async (req, res) => {
     console.log(error);
     res.status(500).send(error);
   }
+});
+
+router.put("/logout", verifyToken, (req, res) => {
+  const authHeader = req.headers.accessToken;
+
+  jwt.sign(authHeader, "", { expiresIn: 1 }, (logout, err) => {
+    if (logout) {
+      res.send("You have been logged out!");
+    } else {
+      res.send("Error");
+    }
+  });
 });
 
 export default router;

@@ -1,12 +1,12 @@
-import express from "express";
-import Product from "../models/Product.js";
-import { verifyTokenAndAdmin } from "./verifyToken.js";
+import express from 'express';
+import Product from '../models/Product.js';
+import { verifyTokenAndAdmin } from './verifyToken.js';
 
 const router = express.Router();
 
 // ADD NEW PRODUCT
 
-router.post("/", verifyTokenAndAdmin, async (req, res) => {
+router.post('/', verifyTokenAndAdmin, async (req, res) => {
   const newProduct = new Product(req.body);
   try {
     const savedProduct = await newProduct.save();
@@ -19,7 +19,7 @@ router.post("/", verifyTokenAndAdmin, async (req, res) => {
 
 // UPDATE A PRODUCT
 
-router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
+router.put('/:id', verifyTokenAndAdmin, async (req, res) => {
   try {
     const updatedProduct = await Product.findByIdAndUpdate(
       req.params.id,
@@ -34,12 +34,12 @@ router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
   }
 });
 
-// DELETE A USER
+// DELETE A PRODUCT
 
-router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
+router.delete('/:id', verifyTokenAndAdmin, async (req, res) => {
   try {
     await Product.findByIdAndDelete(req.params.id);
-    res.status(200).send("Product Delete!");
+    res.status(200).send('Product Delete!');
   } catch (error) {
     res.status(500).send(error);
   }
@@ -47,7 +47,7 @@ router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
 
 // GET ALL PRODUCTS
 
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const product = await Product.find();
 
