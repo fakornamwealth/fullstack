@@ -278,27 +278,27 @@ The following images are user/Admin interaction with the application interface.
 
 # Register Page
 
-![plot](./client/src/images/register.png)
+![plot](./screenshots/register.png)
 
 # Login Page
 
-![plot](./client/src/images/login.png)
+![plot](./screenshots/login.png)
 
 # Homepage
 
-![plot](./client/src/images/hompage.png)
+![plot](./screenshots/hompage.png)
 
 # Cart Page
 
-![plot](./client/src/images/cart.png)
+![plot](./screenshots/cart.png)
 
 # Admin Page
 
-![plot](./client/src/images/admin.png)
+![plot](./screenshots/admin.png)
 
 # Product Image
 
-![plot](./client/src/images/product.jpg)
+![plot](./screenshots/product.jpg)
 
 ## GitHub Links
 
